@@ -21,8 +21,14 @@ jobs:
       - name: Test
         run: echo "code is tested!"
 
+      - name: Artifact upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: artifact-${{runner.os}}-node-${{matrix.node-version}}
+          path: |
+            package*
+
       - name: Deploy
         run: echo "my code is deployed"
 
 
-        
